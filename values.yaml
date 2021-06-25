@@ -1,0 +1,35 @@
+maintainer: christian-zenker
+priority: low
+replicaCount: 1
+image:
+  repository: ghcr.io/czenker/hello-js
+  tag: 2a5bf7e7c60aef05a13d8561461bc7e3fdbcd055
+  port: 3000
+hpa:
+  enabled: false
+ingress:
+  enabled: true
+  hosts:
+    - host: hello-js.ops-dev.narf.tech
+      paths:
+        - /
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+serviceAccount:
+  create: false
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "0.1"
+  limits:
+    memory: "512Mi"
+    cpu: "0.2"
+
+env:
+  - name: REDIS_HOST
+    value: "aoecze-telepresence-test.zpyd59.ng.0001.euc1.cache.amazonaws.com"
+
+securityContext:
+  runAsUser: 1001
+  # runAsNonRoot: true
+  privileged: false

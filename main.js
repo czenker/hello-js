@@ -20,11 +20,11 @@ const prettyPlease = (obj) => '<pre>' + yaml.dump(obj) + '</pre>'
 app.get('/', (req, res) => res.send('Hello Team Snowball!'))
 
 app.get('/system', (req, res) => res.send(prettyPlease({
-    "user": os.userInfo().username,
+//    "user": os.userInfo().username,
     "hostname": os.hostname(),
-    "arch": os.arch(),
-    "platform": os.platform(),
-    "release": os.release(),
+//    "arch": os.arch(),
+//    "platform": os.platform(),
+//    "release": os.release(),
 })))
 
 app.get('/headers', (req, res) => res.send(prettyPlease(req.headers)))
