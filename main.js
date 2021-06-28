@@ -17,7 +17,7 @@ redisClient.ping(redis.print)
 
 const prettyPlease = (obj) => '<pre>' + yaml.dump(obj) + '</pre>'
 
-app.get('/', (req, res) => res.send('Hello Team Snowball!'))
+app.get('/', (req, res) => res.send('Hello World!'))
 
 app.get('/system', (req, res) => res.send(prettyPlease({
 //    "user": os.userInfo().username,
